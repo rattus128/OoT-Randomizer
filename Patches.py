@@ -1031,6 +1031,10 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
         if world.dungeon_mq['Spirit Temple']:
             save_context.addresses['keys']['spirit'].value = 3
 
+    for I in range(8):
+        save_context.write_byte(0x00BC + I, 0x06);
+        save_context.write_byte(0x00A8 + I, 0x07);
+
     if world.start_with_wallet:
         world.distribution.give_item('Progressive Wallet', 3)
     if world.start_with_rupees:
@@ -1041,10 +1045,54 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
             world.distribution.give_item('Deku Shield')
         world.distribution.give_item('Deku Sticks', 99)
         world.distribution.give_item('Deku Nuts', 99)
+
+    save_context.write_bits(0x009D, 0x10) # start with Deku Shield
+    save_context.write_bits(0x0071, 0x10) # equip Deku Shield
+    save_context.write_byte(0x008C, 0x0A) # start with 10 Deku sticks
+    save_context.write_byte(0x008D, 0x14) # start with 20 Deku nuts
+    save_context.write_bits(0x00A1, 0x12) # enable Deku stick/nut base capacity
+
     if world.start_with_fast_travel:
         world.distribution.give_item('Prelude of Light')
         world.distribution.give_item('Serenade of Water')
         world.distribution.give_item('Farores Wind')
+
+    save_context.write_byte(0x002E, 0x01)
+    save_context.write_byte(0x002F, 0x40)
+
+    save_context.write_bytes(0x0074, [0x00, 0x01, 0x02, 0x03, 0x04, 0x05,
+                                 0x06, 0x08, 0x09, 0x0B, 0x0C, 0x0D,
+                                 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13,
+                                 0x1B, 0x1C, 0x1C, 0x18, 0x2D, 0x21])
+
+    save_context.write_bits(0x00A1, 0x06) # sticks
+    save_context.write_bits(0x00A1, 0x30) # nuts
+    save_context.write_bits(0x00A2, 0xC0) # sticks
+    save_context.write_bits(0x00A3, 0x03) # Arrows
+    save_context.write_bits(0x00A3, 0x18) # Seeds
+    save_context.write_bits(0x00A3, 0xC0) # Str upgrade
+    save_context.write_bits(0x00A2, 0x04) # Scale
+
+    save_context.write_byte(0x003E, 0x01)
+    save_context.write_byte(0x003A, 0x01)
+    save_context.write_byte(0x003C, 0x01)
+    save_context.write_byte(0x0033, 0x60)
+    save_context.write_byte(0x0032, 0x02)
+    save_context.write_bytes(0x009C, [0x77, 0x77])
+
+    # Songs
+    save_context.write_bits(0x00A6, 0x10)
+    save_context.write_bits(0x00A6, 0x20)
+    save_context.write_bits(0x00A6, 0x40)
+    save_context.write_bits(0x00A6, 0x80)
+    save_context.write_bits(0x00A5, 0x01)
+    save_context.write_bits(0x00A5, 0x02)
+    save_context.write_bits(0x00A7, 0x40)
+    save_context.write_bits(0x00A7, 0x80)
+    save_context.write_bits(0x00A6, 0x01)
+    save_context.write_bits(0x00A6, 0x02)
+    save_context.write_bits(0x00A6, 0x04)
+    save_context.write_bits(0x00A6, 0x08)
 
     # Set starting time of day
     if world.starting_tod != 'default':
@@ -1303,6 +1351,11 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
                     rom.write_int16(0xCA3EA2, bit_mask_hi)
                     rom.write_int16(0xCA3EA6, bit_mask_lo)
 
+    save_context.give_item("Forest Medallion")
+    save_context.give_item("Fire Medallion")
+    save_context.give_item("Water Medallion")
+    save_context.give_item("Shadow Medallion")
+    save_context.give_item("Spirit Medallion")
     # add a cheaper bombchu pack to the bombchu shop
     # describe
     update_message_by_id(messages, 0x80FE, '\x08\x05\x41Bombchu   (5 pieces)   60 Rupees\x01\x05\x40This looks like a toy mouse, but\x01it\'s actually a self-propelled time\x01bomb!\x09\x0A', 0x03)
