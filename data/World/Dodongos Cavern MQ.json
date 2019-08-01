@@ -26,7 +26,7 @@
             "DC MQ Deku Scrub Deku Seeds": "can_stun_deku",
             "DC MQ Deku Scrub Deku Shield": "can_stun_deku",
             "Dodongos Cavern Gossip Stone": "True",
-            "Gossip Stone Fairy": "can_summon_gossip_fairy and has_bottle"
+            "Gossip Stone Fairy": "can_summon_gossip_fairy"
         },
         "exits": {
             "Dodongos Cavern Lower Right Side": "

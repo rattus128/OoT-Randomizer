@@ -59,7 +59,7 @@
         "locations": {
             "Ganons Castle Water Trial Left Chest": "True",
             "Ganons Castle Water Trial Right Chest": "True",
-            "Fairy Pot": "has_blue_fire and has_bottle",
+            "Fairy Pot": "has_blue_fire",
             "Blue Fire": "has_bottle"
         }
     },

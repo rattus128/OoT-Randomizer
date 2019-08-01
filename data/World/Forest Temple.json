@@ -7,7 +7,7 @@
             "Forest Temple Chest Behind Lobby": "is_adult or Kokiri_Sword",
             "GS Forest Temple First Room": "can_use(Dins_Fire) or can_use_projectile",
             "GS Forest Temple Lobby": "can_use(Hookshot) or can_use(Boomerang)",
-            "Fairy Pot": "has_bottle and (is_adult or can_child_attack or has_nuts)"
+            "Fairy Pot": "is_adult or can_child_attack or has_nuts"
         },
         "exits": {
             "Sacred Forest Meadow": "True",

@@ -431,7 +431,7 @@ class State(object):
 
 
     def has_fairy(self):
-        return self.has_any_of(('Fairy', 'Buy Fairy\'s Spirit'))
+        return self.has_any_of(('Fairy', 'Buy Fairy\'s Spirit')) and self.has_bottle()
 
 
     def has_big_poe_drop(self):

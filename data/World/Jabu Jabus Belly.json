@@ -17,7 +17,7 @@
             "GS Jabu Jabu Lobby Basement Upper": "can_use(Boomerang) or can_use(Hookshot)",
             "Jabu Deku Scrub Deku Nuts": "
                 can_dive or is_child or logic_jabu_scrub_jump_dive or can_use(Iron_Boots)",
-            "Fairy Pot": "has_bottle"
+            "Fairy Pot": "True"
         },
         "exits": {
             "Jabu Jabus Belly Beginning": "True",

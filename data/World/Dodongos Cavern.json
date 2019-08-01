@@ -27,7 +27,7 @@
                 has_explosives or Kokiri_Sword",
             "DC Deku Scrub Deku Shield": "True",
             "Dodongos Cavern Gossip Stone": "True",
-            "Gossip Stone Fairy": "can_summon_gossip_fairy and has_bottle"
+            "Gossip Stone Fairy": "can_summon_gossip_fairy"
         },
         "exits": {
             "Dodongos Cavern Beginning": "True",
@@ -82,7 +82,7 @@
                 (has_bombs or Progressive_Strength_Upgrade) and 
                 (is_adult or has_sticks or Kokiri_Sword)",
             "GS Dodongo's Cavern Back Room": "True",
-            "Fairy Pot": "has_bottle"
+            "Fairy Pot": "True"
         },
         "exits": {
             "Dodongos Cavern Lobby": "True"
