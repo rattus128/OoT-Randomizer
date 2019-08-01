@@ -585,6 +585,11 @@ class State(object):
             return True
 
 
+    def all_ammo_replenishable(self):
+        return (self.has_any_of(('Fairy', 'Buy Fairy\'s Spirit')) or self.can_live_dmg(1)) and \
+                self.has_sticks() and self.can_buy_bombchus()
+
+
     # Be careful using this function. It will not collect any
     # items that may be locked behind the item, only the item itself.
     def collect(self, item):
