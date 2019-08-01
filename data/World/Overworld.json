@@ -764,7 +764,7 @@
         "locations": {
             "Bombchu Bowling Bomb Bag": "has_bombchus_item",
             "Bombchu Bowling Piece of Heart": "has_bombchus_item",
-            "Bombchu Bowling Bombchus": "has_bombchus_item"
+            "Bombchu Bowling Bombchus": "True"
         },
         "exits": {
             "Castle Town": "True"

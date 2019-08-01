@@ -124,7 +124,13 @@ def set_shop_rules(world):
                                       'Buy Red Potion [50]',
                                       'Buy Fairy\'s Spirit']:
                 add_rule(location, lambda state: state.has_bottle())
-            if location.item.name in ['Buy Bombchu (10)', 'Buy Bombchu (20)', 'Buy Bombchu (5)']:
+
+            #cleanup the playthrough to not show chu refill before chus if not doing high
+            #level ER. In special interiors ER or higher, the chu refill can have logical
+            #impact without the bombchu item.
+            if  not world.shuffle_special_indoor_entrances and \
+                location.item.name in ['Bombchu Bowling Bombchus', 'Buy Bombchu (10)', \
+                                       'Buy Bombchu (20)', 'Buy Bombchu (5)']:
                 add_rule(location, lambda state: state.has_bombchus_item())
 
 
