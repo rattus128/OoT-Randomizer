@@ -374,7 +374,7 @@ class State(object):
 
 
     def has_bombchus(self):
-        return self.can_buy_bombchus() and self.has_bombchu_item()
+        return self.can_buy_bombchus() and self.has_bombchus_item()
 
 
     def has_bombchus_item(self):
@@ -432,7 +432,6 @@ class State(object):
 
     def has_fairy(self):
         return self.has_any_of(('Fairy', 'Buy Fairy\'s Spirit')) and self.has_bottle()
-
 
     def has_big_poe_drop(self):
         return self.has('Big Poe')
