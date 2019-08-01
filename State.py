@@ -374,7 +374,7 @@ class State(object):
 
 
     def has_bombchus(self):
-        return self.can_buy_bombchus() and (self.world.bombchus_in_logic or self.has('Bomb Bag'))
+        return self.can_buy_bombchus() and self.has_bombchu_item()
 
 
     def has_bombchus_item(self):
